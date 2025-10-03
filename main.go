@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	dbconfig "github.com/caiobribeiro/advance-go-api-learn-project/internal/db_config"
 	"github.com/caiobribeiro/advance-go-api-learn-project/internal/handlers"
 	"github.com/caiobribeiro/advance-go-api-learn-project/internal/routes"
 	serverconfig "github.com/caiobribeiro/advance-go-api-learn-project/server_config"
@@ -17,6 +18,10 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to load config %v", err)
 	}
+
+	// connect to the database
+	db := dbconfig.ConnectDb(config.DatabaseURL)
+	defer db.Close()
 
 	// Create a new handler
 	handler := handlers.NewHandlers()
