@@ -1,20 +1,20 @@
 # advance-go-api-learn-project
 
-Projeto de API REST em Go para fins de aprendizado, utilizando PostgreSQL como banco de dados e sqlc para geração de queries. Estruturado em módulos internos para configuração, acesso a dados, manipulação de requisições, rotas, utilitários e modelos de domínio.
+Go REST API project for learning purposes, using PostgreSQL as the database and sqlc for query generation. The project is structured in internal modules for configuration, data access, request handling, routing, utilities, and domain models.
 
-## Principais Características
-- Estrutura modular (config, handlers, rotas, store, utils, models)
-- Conexão com PostgreSQL via lib/pq
-- Geração de código SQL com sqlc
-- Handlers para saúde, usuários e núcleo
-- Utilitários para JWT, senhas e respostas HTTP
-- Configuração via arquivo `.env`
-- Orquestração de containers com Podman Compose
+## Main Features
+- Modular structure (config, handlers, routes, store, utils, models)
+- PostgreSQL connection via lib/pq
+- SQL code generation with sqlc
+- Handlers for health, users, and core
+- Utilities for JWT, password, and HTTP responses
+- Configuration via `.env` file
+- Container orchestration with Podman Compose
 
-## Como executar
-1. Configure o arquivo `.env` com as variáveis necessárias.
-2. Suba o banco de dados com `podman-compose up`.
-3. Execute a aplicação Go com `go run main.go`.
+## How to run
+1. Configure the `.env` file with the required variables.
+2. Start the database with `podman-compose up`.
+3. Run the Go application with `go run main.go`.
 
-## Arquitetura
-Veja o arquivo [ARCHITECTURE.md](ARCHITECTURE.md) para detalhes sobre a arquitetura do projeto.
+## Architecture
+See the [ARCHITECTURE.md](ARCHITECTURE.md) file for details about the project architecture.
