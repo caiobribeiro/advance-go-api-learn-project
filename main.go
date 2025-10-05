@@ -8,6 +8,7 @@ import (
 	dbconfig "github.com/caiobribeiro/advance-go-api-learn-project/internal/db_config"
 	"github.com/caiobribeiro/advance-go-api-learn-project/internal/handlers"
 	"github.com/caiobribeiro/advance-go-api-learn-project/internal/routes"
+	"github.com/caiobribeiro/advance-go-api-learn-project/internal/store"
 	serverconfig "github.com/caiobribeiro/advance-go-api-learn-project/server_config"
 )
 
@@ -20,11 +21,14 @@ func main() {
 	}
 
 	// connect to the database
+	// 	// connect to the database	// connect to the database
 	db := dbconfig.ConnectDb(config.DatabaseURL)
 	defer db.Close()
 
+	queries := store.New(db)
+
 	// Create a new handler
-	handler := handlers.NewHandlers()
+	handler := handlers.NewHandlers(db, queries)
 
 	// set up the HTTP server
 	serverMux := http.NewServeMux()
